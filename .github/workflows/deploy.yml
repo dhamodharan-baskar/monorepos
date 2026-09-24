@@ -39,9 +39,9 @@ jobs:
       - name: Deploy to Vercel
         working-directory: apps/web
         env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+          VERCEL_TOKEN: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1yay00MzAyZWMxYjY3MGY0OGE5OGFkNjFkYWRlNGEyM2JlNyJ9
+          VERCEL_ORG_ID: team_oAKiIiF4H0zltkJbKNolYrtt
+          VERCEL_PROJECT_ID: prj_yr2V9HxKFXMAj0d4X724JmQV2ce3
         run: |
           npx vercel pull --yes --environment=production --token="$VERCEL_TOKEN"
           npx vercel build --prod --token="$VERCEL_TOKEN"
@@ -56,5 +56,5 @@ jobs:
       - uses: actions/checkout@v4
       - name: Deploy to Railway
         env:
-          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+          RAILWAY_TOKEN: e51d87a7-0967-4b27-bb3b-ee17444b276b
         run: npx @railway/cli up --service server --ci
